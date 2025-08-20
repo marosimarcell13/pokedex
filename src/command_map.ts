@@ -1,6 +1,6 @@
 import { State } from "./state.js";
 
-export async function commandMapForward(state: State) {
+export async function commandMapForward(state: State): Promise<void> {
     const locations = await state.pokeApi.fetchLocations(state.nextLocationURL);
     state.nextLocationURL = locations.next;
     state.prevLocationURL = locations.previous;
@@ -10,7 +10,7 @@ export async function commandMapForward(state: State) {
     }
 }
 
-export async function commandMapBack(state: State) {
+export async function commandMapBack(state: State): Promise<void> {
     const locations = await state.pokeApi.fetchLocations(state.prevLocationURL);
     state.nextLocationURL = (locations.next);
     state.prevLocationURL = (locations.previous);
