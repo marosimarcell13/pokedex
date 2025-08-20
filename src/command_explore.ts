@@ -1,7 +1,7 @@
 import { State } from "./state";
 
-export async function commandExplore(state: State, ...args: string[]) {
-    if (args.length !== 0) {
+export async function commandExplore(state: State, ...args: string[]): Promise<void>  {
+    if (args.length !== 1) {
         throw new Error("you must provide location name");
     };
 
